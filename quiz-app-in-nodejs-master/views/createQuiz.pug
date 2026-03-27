@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1 Create Quiz
+
+  form(action="/quizes/create" method="POST")
+
+    label Quiz Title:
+    input(type="text" name="title" required)
+    br
+    br
+
+    label Description:
+    textarea(name="description" required)
+    br
+    br
+
+    // ===== QUESTIONS =====
+    each num in [1,2,3,4,5]
+      h3 Question #{num}
+
+      input(type="text" name=`q${num}` placeholder="Enter question" required)
+      br
+
+      input(type="text" name=`q${num}a` placeholder="Option A" required)
+      input(type="text" name=`q${num}b` placeholder="Option B" required)
+      input(type="text" name=`q${num}c` placeholder="Option C" required)
+      input(type="text" name=`q${num}d` placeholder="Option D" required)
+      br
+
+      input(type="text" name=`q${num}Correct` placeholder="Correct Answer (A/B/C/D)" required)
+      br
+      br
+
+    button(type="submit") Save Quiz

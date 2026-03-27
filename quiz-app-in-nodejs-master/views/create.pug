@@ -1,0 +1,31 @@
+extends ../layout.pug
+
+block content
+  h1 Create a New Quiz
+
+  form(action="/quizes/create" method="POST")
+    // Quiz Name
+    label(for="name") Quiz Name:
+    input(type="text" name="name" id="name" placeholder="Enter quiz name" required)
+    br
+    br
+
+    // Question 1
+    label(for="q1") Question 1:
+    input(type="text" name="questions[0][text]" id="q1" placeholder="Enter question" required)
+    br
+
+    label Options:
+    br
+    input(type="text" name="questions[0][options][]" placeholder="Option 1" required)
+    input(type="text" name="questions[0][options][]" placeholder="Option 2" required)
+    input(type="text" name="questions[0][options][]" placeholder="Option 3" required)
+    input(type="text" name="questions[0][options][]" placeholder="Option 4" required)
+    br
+
+    label(for="ans1") Correct Option (0-3):
+    input(type="number" name="questions[0][answer]" id="ans1" min="0" max="3" required)
+    br
+    br
+
+    button(type="submit") Save Quiz

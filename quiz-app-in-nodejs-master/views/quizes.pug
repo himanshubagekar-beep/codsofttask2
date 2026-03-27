@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 All Quizzes
+
+  each quiz in quizes
+    .card
+      h2= quiz.title
+      p= quiz.description
+
+      a.btn.btn-primary(href=`/quizes/take/${quiz._id}`)
+        i.fa-solid.fa-play
+        |  Take Quiz
+
+      a.btn.btn-danger(href=`/quizes/delete/${quiz._id}`)
+        i.fa-solid.fa-trash
+        |  Delete

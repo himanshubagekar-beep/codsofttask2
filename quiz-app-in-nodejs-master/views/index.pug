@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .home-container
+    h1 Welcome to the Quiz App!
+    p Create your own quiz or take existing quizzes.
+
+    .btn-group
+      a.btn.btn-primary(href="/quizes") 
+        i.fa.fa-list
+        |  View All Quizzes
+
+      a.btn.btn-success(href="/quizes/create") 
+        i.fa.fa-plus
+        |  Create New Quiz

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .quiz-container
+    h1.quiz-title= quiz.title
+    p.quiz-desc= quiz.description
+
+    form(action=`/quizes/take/${quiz._id}` method="POST")
+
+      each q, i in quiz.questions
+        .question-block
+          h3 #{i + 1}. #{q.question}
+
+          each option, index in q.options
+            label.option
+              input(type="radio" name=`q${i}` value=option required)
+              span.option-text #{option}
+
+      button.submit-btn(type="submit") ✅ Submit Quiz

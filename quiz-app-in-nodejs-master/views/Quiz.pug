@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h2 Create a New Quiz
+  form(method="POST", action="/quizes/create")
+    label(for="title") Quiz Title
+    input(type="text", name="title", required)
+    br
+    label(for="description") Description
+    input(type="text", name="description", required)
+    br
+    button(type="submit") Save Quiz

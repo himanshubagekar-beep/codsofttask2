@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .result-container
+    .result-card
+
+      h1 🎉 Quiz Completed!
+
+      h2.quiz-name= quiz.title
+
+      // Score Section
+      .score-box
+        h3 Your Score
+        .score #{score} / #{total}
+
+      // Message based on score
+      if score == total
+        p.result-msg.excellent 🌟 Excellent! Perfect Score!
+      else if score >= total/2
+        p.result-msg.good 👍 Good Job! Keep Improving!
+      else
+        p.result-msg.bad 😅 Keep Practicing!
+
+      // Buttons
+      .result-actions
+        a.btn.retry(href=`/quizes/take/${quiz._id}`) 🔄 Retry Quiz
+        a.btn.home(href="/quizes") 📚 Back to Quizzes
